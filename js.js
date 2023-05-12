@@ -50,10 +50,10 @@ function myFunction() {
   var x = document.getElementById("list-header");
   if (x.style.opacity === "0") {
     x.style.opacity = "1";
-    x.style.transform = "translateX(0)"
+    x.style.transform = "translateX(0)";
   } else {
     x.style.opacity = "0";
-    x.style.transform = "translateX(100px)"
+    x.style.transform = "translateX(100px)";
   }
 }
 
@@ -112,7 +112,6 @@ $(document).ready(function () {
   }
 });
 
-
 // business
 $(".list-slider").slick({
   slidesToShow: 1,
@@ -123,18 +122,18 @@ $(".list-slider").slick({
     '<button type="button" class="slick-next"><i class="bi bi-chevron-right"></i></button>',
 });
 
-$(".change-slide .list-button").slick({
+$(".list-button").slick({
   slidesToShow: 3,
-  slidesToScroll: 3,
-  asNavFor: ".change-slide .list-content",
+  slidesToScroll: 1,
+  asNavFor: ".list-content",
   dots: false,
   focusOnSelect: true,
 });
-$(".change-slide .list-content").slick({
+$(".list-content").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
-  asNavFor: ".change-slide .list-button",
+  asNavFor: ".list-button",
 });
 
 // project
@@ -158,6 +157,16 @@ $(".slider-project .slider-nav").slick({
   nextArrow:
     '<button type="button" class="slick-next"><i class="bi bi-chevron-right"></i></button>',
 });
+
+var header = document.getElementById("testActive");
+var btns = header.getElementsByClassName("current-1");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 
 // partner
 $(".slider-partner").slick({
